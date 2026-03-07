@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Asteroids
+
+A modern, responsive remake of the classic **Asteroids** arcade game, built with **Next.js 15** and **HTML5 Canvas**.
+
+![Asteroids Game](https://img.shields.io/badge/game-asteroids-cyan?style=flat-square)
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwindcss)
+
+## Features
+
+- **Authentic arcade gameplay** — rotation, thrust, inertia, screen wrapping
+- **Progressive difficulty** — asteroids get faster each level; large ones split into smaller fragments
+- **Particle effects** — thruster exhaust, explosion bursts, glowing bullets
+- **Twinkling starfield** — procedurally generated background
+- **Neon aesthetic** — dark space theme with cyan glow on ship and bullets
+- **Responsive canvas** — fills any screen size and reacts to window resize
+- **Mobile-friendly** — on-screen touch buttons for rotate, thrust, and fire
+- **3 lives system** — brief invincibility on respawn with flicker animation
+- **Score & level HUD** — persistent score, lives indicator, and current level
+
+## Controls
+
+### Keyboard
+| Key | Action |
+|-----|--------|
+| `←` / `A` | Rotate left |
+| `→` / `D` | Rotate right |
+| `↑` / `W` | Thrust forward |
+| `Space` / `X` | Fire |
+| `Enter` / `Space` | Start / Restart |
+
+### Mobile / Touch
+Four on-screen buttons appear on small screens:
+- **◄ ►** — Rotate left / right
+- **▲** — Thrust
+- **FIRE** — Shoot
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+
+- npm
+
+### Install & Run
 
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Gameplay
 
-To learn more about Next.js, take a look at the following resources:
+- **Large asteroid** — 20 pts, splits into 2 medium
+- **Medium asteroid** — 50 pts, splits into 2 small
+- **Small asteroid** — 100 pts, destroyed completely
+- Clear all asteroids to advance to the next level
+- You have **3 lives** — colliding with an asteroid destroys your ship
+- A brief **invincibility period** protects you after each respawn
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Technology | Purpose |
+|------------|---------|
+| Next.js 15 (App Router) | Framework & routing |
+| TypeScript | Type safety |
+| HTML5 Canvas | Game rendering |
+| Tailwind CSS 4 | UI styling |
+| React hooks (`useRef`, `useEffect`, `useCallback`) | Game loop & state |
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/
+  components/
+    AsteroidsGame.tsx   # Full game engine + UI component
+  globals.css           # Global resets and base styles
+  icon.svg              # Browser favicon
+  layout.tsx            # Root layout with metadata
+  page.tsx              # Entry page
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+MIT
